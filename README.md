@@ -1,6 +1,6 @@
 # CHILD GROWTH CLASSIFICATION  
 ---
-!(images/Cover.jpg)
+!(assets/images/Cover.jpg)
 **Sumber Image:** *Access Here(https://share.google/images/DDfO5yEbx6us0Cj8h)]*
 
 ---
