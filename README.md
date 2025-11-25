@@ -4,7 +4,7 @@
   <img src="assets/images/Cover.jpg" width="70%">
 </p>
 
-**Sumber Image:** *[Access Here](https://share.google/images/DDfO5yEbx6us0Cj8h)]*
+**Sumber Image:** *[Access Here](https://share.google/images/DDfO5yEbx6us0Cj8h)*
 
 ---
 
@@ -64,9 +64,9 @@ Dataset diperoleh dari platform Roboflow, berisi citra wajah anak-anak dengan du
 Dataset kemudian di-relabel ulang menggunakan format Visual Proxy, dan diproses ulang menjadi dataset wajah terpotong (face-cropped).
 
 Link Original Dataset: 
-1. [**STUNTING Computer Vision Dataset**]
-2. [**STUNTING Computer Vision Model**]
-3. [**Deteksi Stunting Computer Vision Model**]
+1. *[**STUNTING Computer Vision Dataset**](https://universe.roboflow.com/test-bdpwd/stunting-onvws)*
+2. *[**STUNTING Computer Vision Model**](https://universe.roboflow.com/mnt-bgmps/stunting-onvws-b12p5)*
+3. *[**Deteksi Stunting Computer Vision Model**](https://universe.roboflow.com/database-ayu/deteksi-stunting)*
 ---
 
 # 🧼 **Preprocessing dan Pemodelan**
@@ -134,26 +134,26 @@ Di bawah ini adalah confusion matrix untuk setiap model.
 
 <p align="center">
   <!-- EfficientNet Baseline -->
-  <img src="assets/images/Confusion_Matrix_Baseline.png" alt="Confusion Matrix Baseline" width="30%" />
+  <img src="assets/images/Confusion_Matrix_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
   
   <!-- EfficientNet + Fine-Tuning -->
-  <img src="assets/images/Confusion_Matrix_FT_Standar.png" alt="Confusion Matrix FT Standar" width="30%" />
+  <img src="assets/images/Confusion_Matrix_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
   
   <!-- EfficientNet + LoRA -->
-  <img src="assets/images/Confusion_Matrix_FT_LoRA.png" alt="Confusion Matrix FT LoRA" width="30%" />
+  <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" alt="Confusion Matrix FT LoRA" width="30%" />
 
   <!-- Vision Transformer Baseline -->
-  <img src="assets/images/Confusion_Matrix_ViT.png" alt="Confusion Matrix ViT" width="30%" />
+  <img src="assets/images/Confusion_Matrix_ViT.PNG" alt="Confusion Matrix ViT" width="30%" />
 </p>
 
 Learning Curves 📈
-Berikut adalah learning curves untuk model FNN dan DNN yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
+Berikut adalah learning curves untuk model EfficientNet dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
 
 <p align="center">
   <!-- EfficientNet -->
-  <img src="assets/images/grafik_efficient.png" alt="Grafik EfficientNet" width="30%" />
+  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="30%" />
   
   <!-- ViT -->
-  <img src="assets/images/grafik_vit.png" alt="Grafik ViT" width="30%" />
+  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="30%" />
   
 </p>
