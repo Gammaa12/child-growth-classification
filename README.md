@@ -1,14 +1,16 @@
-# CHILD GROWTH CLASSIFICATION  
+<h1 align="center">CHILD GROWTH CLASSIFICATION</h1>
 ---
 <p align="center">
   <img src="assets/images/Cover.jpg" width="70%">
 </p>
 
-**Sumber Image:** *[Access Here](https://share.google/images/DDfO5yEbx6us0Cj8h)*
+<p align="center">
+  Sumber Image : <a href="[LINK_SUMBER](https://share.google/images/DDfO5yEbx6us0Cj8h)">Access Here</a>
+</p>
 
 ---
 
-# 📑 Table of Contents
+<h1 align="center">📑 Table of Contents 📑</h1>
 - [Deskripsi Proyek](#deskripsi-proyek)
 - [Latar Belakang](#latar-belakang)
 - [Tujuan Pengembangan](#tujuan-pengembangan)
