@@ -1,7 +1,10 @@
 # CHILD GROWTH CLASSIFICATION  
 ---
- 
-**Sumber Image:** *[[Link Dataset Anda](https://share.google/images/DDfO5yEbx6us0Cj8h)]*
+<p align="center">
+  <img src="assets/images/Cover.jpg" width="70%">
+</p>
+
+**Sumber Image:** *Access Here(https://share.google/images/DDfO5yEbx6us0Cj8h)]*
 
 ---
 
@@ -60,3 +63,93 @@ Dataset diperoleh dari platform Roboflow, berisi citra wajah anak-anak dengan du
 
 Dataset kemudian di-relabel ulang menggunakan format Visual Proxy, dan diproses ulang menjadi dataset wajah terpotong (face-cropped).
 
+---
+
+# 🧼 **Preprocessing dan Pemodelan**
+✨ **Preprocessing Data** 
+
+Tahap preprocessing dimulai dengan memuat dataset dari direktori yang telah ditentukan. Setiap citra kemudian diproses menggunakan MTCNN untuk mendeteksi wajah dan melakukan cropping sehingga model hanya menerima area wajah yang relevan, bukan latar belakang. Setelah wajah terdeteksi, citra diubah ukurannya menjadi 224×224 piksel dan dinormalisasi menggunakan metode mean–std normalization untuk menyesuaikan standar input model pre-trained seperti EfficientNet dan ViT.
+
+Untuk meningkatkan variasi data dan mencegah overfitting, diterapkan beberapa teknik data augmentation seperti rotasi acak, horizontal flip, random crop, dan penyesuaian brightness–contrast. Dataset kemudian dibagi menggunakan stratified split menjadi 80% data latih dan 20% data uji agar distribusi kelas VP-0 dan VP-1 tetap seimbang. Hasil akhir preprocessing menghasilkan dataset yang bersih, terstruktur, dan siap digunakan untuk pelatihan model.
+
+🤖 **Pemodelan**
+**A. EfficientNet-B0**
+Model pertama yang digunakan adalah **EfficientNet-B0**, sebuah CNN modern yang mengombinasikan depth, width, dan resolution scaling untuk efisiensi maksimal.
+Tiga eksperimen dilakukan:
+
+- **1. Baseline**
+   - Mengganti classification head menjadi Linear (1280 → 2)
+   - Melatih selama 10 epoch
+   - Optimizer Adam, LR = 1e-4
+
+- **2. Fine-Tuning Standar**
+   - Membuka 40 layer teratas untuk dilatih ulang
+   - Hasilnya meningkat signifikan
+
+- **3. Fine-Tuning + LoRA**
+   - Menambahkan modul LoRA pada pointwise convolution
+   - Melatih parameter kecil ber-rank rendah
+   - Paling efisien dan paling akurat dalam pengujian
+
+**B. Vision Transformer (ViT)**
+Sebagai pembanding, digunakan arsitektur ViT-Base Patch16/224:
+
+- Pre-trained ImageNet
+- Head diganti menjadi Linear (768 → 2)
+- Pelatihan dilakukan tanpa LoRA
+
+ViT mendapatkan performa tinggi namun masih kalah dari EfficientNet+LoRA.
+
+---
+
+📊 **Hasil dan Evaluasi**
+
+**Evaluasi Model**
+Model dievaluasi menggunakan beberapa metrik, termasuk **classification report** dan **confusion matrix**.
+
+**Classification Report**
+Berikut adalah penjelasan tentang metrik yang digunakan dalam classification report:
+
+- **Precision**: Mengukur proporsi prediksi positif yang benar.
+- **Recall**: Mengukur proporsi sampel aktual positif yang berhasil diidentifikasi dengan benar.
+- **F1-Score**: Rata-rata harmonis dari precision dan recall.
+- **Accuracy**: Mengukur keseluruhan performa model.
+
+**Tabel Perbandingan Classification Report**
+Berikut adalah perbandingan metrik evaluasi untuk setiap model:
+| Model                         | Algoritma   | Akurasi | Precision | Recall | F1-Score |
+|------------------------------|-------------|---------|-----------|--------|----------|
+| Baseline EfficientNet        | CNN         | 0.88    | 0.84      | 0.94   | 0.89     |
+| EfficientNet + Fine-Tuning   | CNN         | 0.97    | 0.99      | 0.95   | 0.97     |
+| EfficientNet + LoRA (Best)   | CNN         | 0.98    | 0.99      | 0.97   | 0.98     |
+| Vision Transformer Baseline  | Transformer | 0.95    | 0.95      | 0.95   | 0.95     |
+
+## Confusion Matrix 🔴🟢
+
+Di bawah ini adalah confusion matrix untuk setiap model.
+
+<p align="center">
+  <!-- EfficientNet Baseline -->
+  <img src="assets/images/Confusion Matrix Baseline.png" alt="Confusion Matrix FNN" width="30%" />
+  
+  <!-- EfficientNet + Fine-Tuning -->
+  <img src="assets/images/Confusion Matrix FT Standar.png" alt="Confusion Matrix DNN" width="30%" />
+  
+  <!-- EfficientNet + LoRA -->
+  <img src="assets/images/Confusion Matrix FT Standar.png" alt="Confusion Matrix RF" width="30%" />
+
+  <!-- Vision Transformer Baseline -->
+  <img src="assets/images/Confusion Matrix ViT.png" alt="Confusion Matrix RF" width="30%" />
+</p>
+
+Learning Curves 📈
+Berikut adalah learning curves untuk model FNN dan DNN yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
+
+<p align="center">
+  <!-- EfficientNet -->
+  <img src="assets/images/Confusion Matrix Baseline.png" alt="Confusion Matrix FNN" width="30%" />
+  
+  <!-- ViT -->
+  <img src="assets/images/Confusion Matrix FT Standar.png" alt="Confusion Matrix DNN" width="30%" />
+  
+</p>
