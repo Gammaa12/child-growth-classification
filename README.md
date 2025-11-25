@@ -20,7 +20,7 @@
 
 ---
 
-<h1 align="center">📚 Deskripsi Proyek 📚</h1>
+<h1 id="deskripsi-proyek" align="center">📚 Deskripsi Proyek 📚</h1>
 
 Proyek ini bertujuan mengembangkan sistem berbasis deep learning yang dapat mengenali pola proporsi wajah anak-anak sebagai indikator awal status pertumbuhan menggunakan pendekatan **Visual Proxy (VP)**.
 Alih-alih mendiagnosis kondisi medis seperti stunting, model hanya mempelajari **pola visual wajah**, yaitu:
@@ -37,7 +37,7 @@ Model dengan performa terbaik adalah EfficientNet + Fine-Tuning + LoRA.
 
 ---
 
-<h1 align="center">🧠 Latar Belakang 🧠</h1>
+<h1 id="latar-belakang" align="center">🧠 Latar Belakang 🧠</h1>
 
 Masalah gangguan pertumbuhan seperti stunting masih menjadi isu kritis di berbagai negara berkembang. Deteksi dini merupakan langkah penting, namun metode tradisional masih bergantung pada peralatan medis, tenaga ahli, dan proses pengukuran manual yang dapat memakan waktu serta tidak selalu tersedia di lapangan.
 
@@ -45,7 +45,7 @@ Untuk itu, pendekatan Visual Proxy berbasis Deep Learning menjadi solusi non-med
 
 ---
 
-<h1 align="center">🎯 Tujuan Pengembangan 🎯</h1>
+<h1 id="tujuan-pengembangan" align="center">🎯 Tujuan Pengembangan 🎯</h1>
 
 
 - Mengembangkan model klasifikasi citra wajah anak berdasarkan pola visual proporsional (VP-0) dan non-proporsional (VP-1).
@@ -55,7 +55,7 @@ Untuk itu, pendekatan Visual Proxy berbasis Deep Learning menjadi solusi non-med
 
 ---
 
-<h1 align="center">📊 Sumber Dataset 📊</h1>
+<h1 id="sumber-dataset" align="center">📊 Sumber Dataset 📊</h1>
 
 Dataset diperoleh dari platform Roboflow, berisi citra wajah anak-anak dengan dua kategori:
 
@@ -70,14 +70,14 @@ Link Original Dataset:
 3. *[**Deteksi Stunting Computer Vision Model**](https://universe.roboflow.com/database-ayu/deteksi-stunting)*
 ---
 
-<h1 align="center">🧼 Preprocessing dan Pemodelan 🧼</h1>
-<h2 align="center">✨ Preprocessing Data ✨</h2>
+<h1 id="preprocessing-dan-pemodelan" align="center">🧼 Preprocessing dan Pemodelan 🧼</h1>
+<h2 id="preprocessing-data" align="center">✨ Preprocessing Data ✨</h2>
 
 Tahap preprocessing dimulai dengan memuat dataset dari direktori yang telah ditentukan. Setiap citra kemudian diproses menggunakan MTCNN untuk mendeteksi wajah dan melakukan cropping sehingga model hanya menerima area wajah yang relevan, bukan latar belakang. Setelah wajah terdeteksi, citra diubah ukurannya menjadi 224×224 piksel dan dinormalisasi menggunakan metode mean–std normalization untuk menyesuaikan standar input model pre-trained seperti EfficientNet dan ViT.
 
 Untuk meningkatkan variasi data dan mencegah overfitting, diterapkan beberapa teknik data augmentation seperti rotasi acak, horizontal flip, random crop, dan penyesuaian brightness–contrast. Dataset kemudian dibagi menggunakan stratified split menjadi 80% data latih dan 20% data uji agar distribusi kelas VP-0 dan VP-1 tetap seimbang. Hasil akhir preprocessing menghasilkan dataset yang bersih, terstruktur, dan siap digunakan untuk pelatihan model.
 
-<h2 align="center">🤖 Pemodelan 🤖</h2>
+<h2 id="pemodelan" align="center">🤖 Pemodelan 🤖</h2>
   
 **A. EfficientNet-B0**
 Model pertama yang digunakan adalah **EfficientNet-B0**, sebuah CNN modern yang mengombinasikan depth, width, dan resolution scaling untuk efisiensi maksimal.
@@ -108,7 +108,7 @@ ViT mendapatkan performa tinggi namun masih kalah dari EfficientNet+LoRA.
 
 ---
 
-<h1 align="center">📊 Hasil & Evaluasi 📊</h1>
+<h1 id="hasil--evaluasi" align="center">📊 Hasil & Evaluasi 📊</h1>
 
 **Evaluasi Model**
 Model dievaluasi menggunakan beberapa metrik, termasuk **classification report** dan **confusion matrix**.
