@@ -114,9 +114,11 @@ ViT mendapatkan performa tinggi namun masih kalah dari EfficientNet+LoRA.
 <h1 id="hasil--evaluasi" align="center">📊 Hasil & Evaluasi 📊</h1>
 
 **Evaluasi Model**
+
 Model dievaluasi menggunakan beberapa metrik, termasuk **classification report** dan **confusion matrix**.
 
 **Classification Report**
+
 Berikut adalah penjelasan tentang metrik yang digunakan dalam classification report:
 
 - **Precision**: Mengukur proporsi prediksi positif yang benar.
@@ -125,7 +127,9 @@ Berikut adalah penjelasan tentang metrik yang digunakan dalam classification rep
 - **Accuracy**: Mengukur keseluruhan performa model.
 
 **Tabel Perbandingan Classification Report**
+
 Berikut adalah perbandingan metrik evaluasi untuk setiap model:
+
 | Model                         | Algoritma   | Akurasi | Precision | Recall | F1-Score |
 |------------------------------|-------------|---------|-----------|--------|----------|
 | Baseline EfficientNet        | CNN         | 0.88    | 0.84      | 0.94   | 0.89     |
@@ -133,7 +137,7 @@ Berikut adalah perbandingan metrik evaluasi untuk setiap model:
 | EfficientNet + LoRA (Best)   | CNN         | 0.98    | 0.99      | 0.97   | 0.98     |
 | Vision Transformer Baseline  | Transformer | 0.95    | 0.95      | 0.95   | 0.95     |
 
-## Confusion Matrix 🔴🟢
+**Confusion Matrix** 🔴🟢
 
 Di bawah ini adalah confusion matrix untuk setiap model.
 
@@ -151,14 +155,15 @@ Di bawah ini adalah confusion matrix untuk setiap model.
   <img src="assets/images/Confusion_Matrix_ViT.PNG" alt="Confusion Matrix ViT" width="30%" />
 </p>
 
-Learning Curves 📈
+**Learning Curves** 📈
+
 Berikut adalah learning curves untuk model EfficientNet dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
 
 <p align="center">
   <!-- EfficientNet -->
-  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="30%" />
+  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="60%" />
   
   <!-- ViT -->
-  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="30%" />
+  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="60%" />
   
 </p>
