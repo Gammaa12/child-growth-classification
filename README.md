@@ -13,10 +13,10 @@
 - [Latar Belakang](#latar-belakang)
 - [Tujuan Pengembangan](#tujuan-pengembangan)
 - [Sumber Dataset](#sumber-dataset)
-- [Preprocessing dan Pemodelan](#preprocessing-dan-ekstraksi-fitur)
-  - [Preprocessing Data](#preprocessing)
+- [Preprocessing dan Pemodelan](#preprocessing-dan-pemodelan)
+  - [Preprocessing Data](#preprocessing-data)
   - [Pemodelan](#pemodelan)
-- [Hasil & Evaluasi](#hasil)
+- [Hasil & Evaluasi](#hasil--evaluasi)
 
 ---
 
@@ -70,13 +70,13 @@ Link Original Dataset:
 ---
 
 # 🧼 **Preprocessing dan Pemodelan**
-✨ **Preprocessing Data** 
+## ✨ **Preprocessing Data** 
 
 Tahap preprocessing dimulai dengan memuat dataset dari direktori yang telah ditentukan. Setiap citra kemudian diproses menggunakan MTCNN untuk mendeteksi wajah dan melakukan cropping sehingga model hanya menerima area wajah yang relevan, bukan latar belakang. Setelah wajah terdeteksi, citra diubah ukurannya menjadi 224×224 piksel dan dinormalisasi menggunakan metode mean–std normalization untuk menyesuaikan standar input model pre-trained seperti EfficientNet dan ViT.
 
 Untuk meningkatkan variasi data dan mencegah overfitting, diterapkan beberapa teknik data augmentation seperti rotasi acak, horizontal flip, random crop, dan penyesuaian brightness–contrast. Dataset kemudian dibagi menggunakan stratified split menjadi 80% data latih dan 20% data uji agar distribusi kelas VP-0 dan VP-1 tetap seimbang. Hasil akhir preprocessing menghasilkan dataset yang bersih, terstruktur, dan siap digunakan untuk pelatihan model.
 
-🤖 **Pemodelan**
+## 🤖 **Pemodelan**
 **A. EfficientNet-B0**
 Model pertama yang digunakan adalah **EfficientNet-B0**, sebuah CNN modern yang mengombinasikan depth, width, dan resolution scaling untuk efisiensi maksimal.
 Tiga eksperimen dilakukan:
