@@ -5,12 +5,13 @@
 </p>
 
 <p align="center">
-  Sumber Image : <a href="[LINK_SUMBER](https://share.google/images/DDfO5yEbx6us0Cj8h)">Access Here</a>
+  Sumber Image : <a href="https://share.google/images/DDfO5yEbx6us0Cj8h">Access Here</a>
 </p>
 
 ---
 
 <h1 align="center">📑 Table of Contents 📑</h1>
+
 - [Deskripsi Proyek](#deskripsi-proyek)
 - [Latar Belakang](#latar-belakang)
 - [Tujuan Pengembangan](#tujuan-pengembangan)
