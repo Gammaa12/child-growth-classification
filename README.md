@@ -257,51 +257,45 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
 <h2><b>Confusion Matrix 🔴🟢</b></h2>
 <p>Di bawah ini adalah confusion matrix untuk setiap model.</p>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>SVM Baseline</b><br>
+      <img src="assets/images/Confusion_Matrix_Baseline.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>SVM Landmark + GLCM</b><br>
+      <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>RF — LMRK + GLCM + CCM + SIFT</b><br>
+      <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" width="180px">
+    </td>
+  </tr>
 
-  <!-- BOX 1 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>SVM Baseline</h4>
-    <img src="assets/images/Confusion_Matrix_Baseline.PNG" width="90%">
-  </div>
+  <tr>
+    <td align="center">
+      <b>RF — LBP + HOG + Gabor + Color</b><br>
+      <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>CNN FT Standar</b><br>
+      <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>EfficientNet + LoRA</b><br>
+      <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" width="180px">
+    </td>
+  </tr>
 
-  <!-- BOX 2 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>SVM Landmark + GLCM</h4>
-    <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" width="90%">
-  </div>
+  <tr>
+    <td align="center">
+      <b>Vision Transformer</b><br>
+      <img src="assets/images/Confusion_Matrix_ViT.PNG" width="180px">
+    </td>
+  </tr>
+</table>
 
-  <!-- BOX 3 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>RF — Landmark + GLCM + CCM + SIFT</h4>
-    <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" width="90%">
-  </div>
-
-  <!-- BOX 4 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>RF — LBP + HOG + Gabor + Color</h4>
-    <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" width="90%">
-  </div>
-
-  <!-- BOX 5 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>CNN Fine-Tuning Standar</h4>
-    <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" width="90%">
-  </div>
-
-  <!-- BOX 6 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>EfficientNet + LoRA</h4>
-    <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" width="90%">
-  </div>
-
-  <!-- BOX 7 -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
-    <h4>Vision Transformer</h4>
-    <img src="assets/images/Confusion_Matrix_ViT.PNG" width="90%">
-  </div>
-
-</div>
 
 
 <h2><b>Learning Curves 📈</b></h2>
