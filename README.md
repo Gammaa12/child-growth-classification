@@ -255,7 +255,7 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
 | Vision Transformer Baseline                 | ViT            | 0.95    | 0.95      | 0.95   | 0.95     |
 
 <h2><b>Confusion Matrix 🔴🟢</b></h2>
-<p>Di bawah ini adalah confusion matrix untuk setiap model.</p>
+<p>Di bawah ini adalah confusion matrix untuk model terbaik.</p>
 
 <table align="center">
   <tr>
@@ -296,29 +296,26 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
   </tr>
 </table>
 
-
-
 <h2><b>Learning Curves 📈</b></h2>
-<p>Berikut adalah learning curves untuk model CNN, EfficientNet, dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:</p>
+<p>Berikut adalah learning curves untuk model CNN, EfficientNet dan ViT.</p>
 
-<div style="display: flex; flex-direction: column; gap: 25px; align-items: center;">
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>CNN Learning Curve</b><br>
+      <img src="assets/images/grafik_cnn.PNG" width="350px">
+    </td>
+    <td align="center">
+      <b>EfficientNet Learning Curve</b><br>
+      <img src="assets/images/grafik_efficient.PNG" width="350px">
+    </td>
+  </tr>
 
-  <!-- CNN -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; width: 80%; text-align: center;">
-    <h3>CNN Learning Curve</h3>
-    <img src="assets/images/grafik_cnn.PNG" width="90%">
-  </div>
+  <tr>
+    <td align="center" colspan="2">
+      <b>Vision Transformer Learning Curve</b><br>
+      <img src="assets/images/grafik_vit.PNG" width="350px">
+    </td>
+  </tr>
+</table>
 
-  <!-- EfficientNet -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; width: 80%; text-align: center;">
-    <h3>EfficientNet Learning Curve</h3>
-    <img src="assets/images/grafik_efficient.PNG" width="90%">
-  </div>
-
-  <!-- ViT -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; width: 80%; text-align: center;">
-    <h3>ViT Learning Curve</h3>
-    <img src="assets/images/grafik_vit.PNG" width="90%">
-  </div>
-
-</div>
