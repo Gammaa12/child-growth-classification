@@ -260,7 +260,7 @@ Di bawah ini adalah confusion matrix untuk setiap model.
 
 <p align="center">
   <!-- SVM Baseline -->
-  <img src="assets/images/Confusion_Matrix_SVM_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <img src="assets/images/Confusion_Matrix_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
 
   <!-- SVM Landmark + GLCM -->
   <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" alt="Confusion Matrix Baseline" width="30%" />
