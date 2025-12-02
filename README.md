@@ -138,19 +138,16 @@ Tiga eksperimen dilakukan:
 - Classification head diubah menjadi Linear (1280 → 2)
 - Training selama 10 epoch
 - Optimizer Adam, LR = 1e-4  
--> Menjadi dasar pembanding performa.
 
 #### **2. Fine-Tuning Standar**
 - 40 layer teratas EfficientNet dibuka untuk dilatih ulang
 - Meningkatkan kemampuan model dalam mengenali pola visual halus  
--> Performa naik signifikan dibanding baseline.
 
 #### **3. Fine-Tuning + LoRA (Low-Rank Adaptation)**  
 Pendekatan paling efisien sekaligus paling akurat:
 - LoRA ditambahkan pada pointwise convolution
 - Hanya parameter ber-rank rendah yang diperbarui
 - Komputasi lebih ringan dibanding full fine-tuning  
--> Model **terbaik** di seluruh eksperimen.
 
 ---
 
@@ -161,8 +158,6 @@ Sebagai pembanding, digunakan Vision Transformer model dasar:
 - Pre-trained ImageNet
 - Classification head diganti menjadi Linear (768 → 2)
 - Dilatih sebagai baseline (tanpa LoRA)
-
-Hasil ViT sangat baik dan stabil, tetapi masih berada di bawah performa EfficientNet + LoRA.
 
 ---
 
@@ -185,8 +180,6 @@ Setiap fitur atau kombinasi fitur diuji menggunakan:
 - **SVM**
 - **Random Forest**
 - **K-NN**
-
-Hasilnya cukup baik, namun masih jauh di bawah model deep learning, terutama EfficientNet + LoRA.
 
 ---
 
@@ -250,17 +243,36 @@ Berikut adalah perbandingan metrik evaluasi untuk setiap model:
 | EfficientNet + FT LoRA (Best)     | EfficientNet     | 0.98    | 0.99      | 0.97   | 0.98     |
 | Vision Transformer Baseline       | ViT              | 0.95    | 0.95      | 0.95   | 0.95     |
 
+Berikut adalah perbandingan metrik evaluasi terbaik:
+| Model Terbaik                              | Algoritma      | Akurasi | Precision | Recall | F1-Score |
+|---------------------------------------------|----------------|---------|-----------|--------|----------|
+| Baseline                                    | SVM            | 0.91    | 0.93      | 0.90   | 0.91     |
+| Landmark + GLCM                             | SVM            | 0.86    | 0.91      | 0.82   | 0.86     |
+| Landmark + GLCM + CCM + SIFT                | Random Forest  | 0.87    | 0.92      | 0.82   | 0.87     |
+| LBP + HOG + GABOR + COLOR                   | Random Forest  | 0.86    | 0.85      | 0.89   | 0.87     |
+| CNN + Fine-Tuning Standar                   | CNN            | 0.90    | 0.91      | 0.90   | 0.91     |
+| EfficientNet + Fine-Tuning + LoRA (BEST)    | EfficientNet   | 0.98    | 0.99      | 0.97   | 0.98     |
+| Vision Transformer Baseline                 | ViT            | 0.95    | 0.95      | 0.95   | 0.95     |
 
 **Confusion Matrix** 🔴🟢
 
 Di bawah ini adalah confusion matrix untuk setiap model.
 
 <p align="center">
-  <!-- EfficientNet Baseline -->
-  <img src="assets/images/Confusion_Matrix_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <!-- SVM Baseline -->
+  <img src="assets/images/Confusion_Matrix_SVM_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+
+  <!-- SVM Landmark + GLCM -->
+  <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" alt="Confusion Matrix Baseline" width="30%" />
+
+  <!-- Random Forest Landmark + GLCM + CCM + SIFT -->
+  <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" alt="Confusion Matrix Baseline" width="30%" />
   
-  <!-- EfficientNet + Fine-Tuning -->
-  <img src="assets/images/Confusion_Matrix_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
+  <!-- Random Forest LBP + HOG + GABOR + COLOR -->
+  <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  
+  <!-- CNN + Fine-Tuning Standar -->
+  <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
   
   <!-- EfficientNet + LoRA -->
   <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" alt="Confusion Matrix FT LoRA" width="30%" />
@@ -274,6 +286,9 @@ Di bawah ini adalah confusion matrix untuk setiap model.
 Berikut adalah learning curves untuk model EfficientNet dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
 
 <p align="center">
+  <!-- CNN -->
+  <img src="assets/images/grafik_cnn.PNG" alt="Grafik EfficientNet" width="60%" />
+  
   <!-- EfficientNet -->
   <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="60%" />
   
