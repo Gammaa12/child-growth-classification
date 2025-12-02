@@ -1,43 +1,74 @@
-# CHILD GROWTH CLASSIFICATION  
+<h1 align="center">CHILD GROWTH CLASSIFICATION</h1>
 ---
 <p align="center">
   <img src="assets/images/Cover.jpg" width="70%">
 </p>
 
-**Sumber Image:** *[Access Here](https://share.google/images/DDfO5yEbx6us0Cj8h)*
+<p align="center">
+  Sumber Image : <a href="https://share.google/images/DDfO5yEbx6us0Cj8h">Access Here</a>
+</p>
 
 ---
 
-# 📑 Table of Contents
+<h1 align="center">📑 Table of Contents 📑</h1>
+
 - [Deskripsi Proyek](#deskripsi-proyek)
 - [Latar Belakang](#latar-belakang)
 - [Tujuan Pengembangan](#tujuan-pengembangan)
 - [Sumber Dataset](#sumber-dataset)
-- [Preprocessing dan Pemodelan](#preprocessing-dan-ekstraksi-fitur)
-  - [Preprocessing Data](#preprocessing)
+- [Preprocessing dan Pemodelan](#preprocessing-dan-pemodelan)
+  - [Preprocessing Data](#preprocessing-data)
   - [Pemodelan](#pemodelan)
-- [Hasil & Evaluasi](#hasil)
+- [Hasil & Evaluasi](#hasil--evaluasi)
 
 ---
 
-# 📚 **Deskripsi Proyek**
+<h1 id="deskripsi-proyek" align="center">📚 Deskripsi Proyek 📚</h1>
 
-Proyek ini bertujuan mengembangkan sistem berbasis deep learning yang dapat mengenali pola proporsi wajah anak-anak sebagai indikator awal status pertumbuhan menggunakan pendekatan **Visual Proxy (VP)**.
-Alih-alih mendiagnosis kondisi medis seperti stunting, model hanya mempelajari **pola visual wajah**, yaitu:
+Proyek ini bertujuan mengembangkan sistem klasifikasi citra wajah anak berdasarkan pola proporsi visual sebagai indikator awal pertumbuhan menggunakan pendekatan **Visual Proxy (VP)**.  
+Pendekatan ini bersifat **non-medis**, sehingga model tidak melakukan diagnosis kesehatan seperti stunting, melainkan hanya mendeteksi **pola atau proporsi wajah** yang dapat menjadi indikator awal potensi ketidakseimbangan pertumbuhan.
 
-- **VP-0 (Visually Proportional)** → proporsi wajah normal 
-- **VP-1 (Visually Linear)** → indikasi ketidakseimbangan proporsi visual
+Dalam konsep Visual Proxy, wajah anak direpresentasikan menjadi dua kategori:
 
-Sistem dikembangkan menggunakan dua model utama:
+- **VP-0 (Visually Proportional)** → proporsi wajah normal  
+- **VP-1 (Visually Linear)** → indikasi perbedaan proporsi wajah yang tidak proporsional
 
-- **EfficientNet-B0** (baseline, fine-tuning, dan fine-tuning + LoRA)
-- **Vision Transformer (ViT)** sebagai pembanding
+Untuk menghasilkan model yang optimal, penelitian ini menguji berbagai pendekatan berbasis Machine Learning dan Deep Learning, yaitu:
 
-Model dengan performa terbaik adalah EfficientNet + Fine-Tuning + LoRA.
+### 🔹 Handcrafted Feature Models  
+Menggunakan kombinasi fitur visual seperti:
+- Landmark
+- GLCM  
+- CCM  
+- SIFT  
+- LBP  
+- HOG  
+- Gabor  
+- Color Moment  
+- Edge Detection  
+
+Dengan algoritma: **SVM, Random Forest, dan K-NN**.
+
+### 🔹 CNN-Based Models  
+Meliputi:
+- **Baseline CNN**
+- **CNN Fine-Tuning**
+- **CNN LoRA (manual & library PEFT)**
+
+### 🔹 Pretrained Deep Learning Models  
+Dua arsitektur modern digunakan:
+
+1. **EfficientNet-B0**
+   - Baseline  
+   - Fine-Tuning  
+   - Fine-Tuning + LoRA (rank rendah untuk efisiensi GPU)
+
+2. **Vision Transformer (ViT-Base Patch16/224)**  
+   - Baseline (tanpa LoRA)
 
 ---
 
-# 🧠 **Latar Belakang**
+<h1 id="latar-belakang" align="center">🧠 Latar Belakang 🧠</h1>
 
 Masalah gangguan pertumbuhan seperti stunting masih menjadi isu kritis di berbagai negara berkembang. Deteksi dini merupakan langkah penting, namun metode tradisional masih bergantung pada peralatan medis, tenaga ahli, dan proses pengukuran manual yang dapat memakan waktu serta tidak selalu tersedia di lapangan.
 
@@ -45,16 +76,26 @@ Untuk itu, pendekatan Visual Proxy berbasis Deep Learning menjadi solusi non-med
 
 ---
 
-# 🎯 **Tujuan Pengembangan**
+<h1 id="tujuan-pengembangan" align="center">🎯 Tujuan Pengembangan 🎯</h1>
 
-- Mengembangkan model klasifikasi citra wajah anak berdasarkan pola visual proporsional (VP-0) dan non-proporsional (VP-1).
-- Mengimplementasikan dan membandingkan performa dua model deep learning modern: **EfficientNet & Vision Transformer (ViT)**.
-- Menguji peningkatan performa menggunakan teknik **Fine-Tuning** dan **Low-Rank Adaptation (LoRA)**.
-- Membangun sistem screening non-medis yang aman secara etika dan privasi. 
+
+- **Mengembangkan model klasifikasi wajah anak** berdasarkan dua kategori Visual Proxy:
+  - **VP-0 (Visually Proportional)** — proporsi wajah normal  
+  - **VP-1 (Visually Linear)** — indikasi ketidakseimbangan proporsi wajah  
+- **Mengevaluasi dan membandingkan berbagai pendekatan Machine Learning & Deep Learning**, meliputi:
+  - Handcrafted features (Landmark, GLCM, CCM, SIFT, LBP, HOG, Gabor, Color, Edge)  
+  - CNN Baseline  
+  - CNN Fine-Tuning  
+  - CNN LoRA (manual & PEFT library)  
+  - EfficientNet-B0 (baseline, fine-tuning, fine-tuning + LoRA)  
+  - Vision Transformer (ViT) baseline
+- **Mengoptimalkan performa model menggunakan teknik Fine-Tuning dan LoRA**, untuk meningkatkan akurasi sekaligus mempertahankan efisiensi komputasi.
+- **Membangun sistem screening awal yang cepat, non-invasif, dan aman secara etika**, tanpa memerlukan data medis atau informasi sensitif anak.
+- **Menentukan model terbaik** yang mampu memberikan prediksi paling stabil dan akurat untuk digunakan pada proses monitoring pertumbuhan secara visual.
 
 ---
 
-# 📊 **Sumber Dataset**
+<h1 id="sumber-dataset" align="center">📊 Sumber Dataset 📊</h1>
 
 Dataset diperoleh dari platform Roboflow, berisi citra wajah anak-anak dengan dua kategori:
 
@@ -69,49 +110,87 @@ Link Original Dataset:
 3. *[**Deteksi Stunting Computer Vision Model**](https://universe.roboflow.com/database-ayu/deteksi-stunting)*
 ---
 
-# 🧼 **Preprocessing dan Pemodelan**
-✨ **Preprocessing Data** 
+<h1 id="preprocessing-dan-pemodelan" align="center">🧼 Preprocessing dan Pemodelan 🧼</h1>
 
-Tahap preprocessing dimulai dengan memuat dataset dari direktori yang telah ditentukan. Setiap citra kemudian diproses menggunakan MTCNN untuk mendeteksi wajah dan melakukan cropping sehingga model hanya menerima area wajah yang relevan, bukan latar belakang. Setelah wajah terdeteksi, citra diubah ukurannya menjadi 224×224 piksel dan dinormalisasi menggunakan metode mean–std normalization untuk menyesuaikan standar input model pre-trained seperti EfficientNet dan ViT.
+<h2 id="preprocessing-data" align="center">✨ Preprocessing Data ✨</h2>
 
-Untuk meningkatkan variasi data dan mencegah overfitting, diterapkan beberapa teknik data augmentation seperti rotasi acak, horizontal flip, random crop, dan penyesuaian brightness–contrast. Dataset kemudian dibagi menggunakan stratified split menjadi 80% data latih dan 20% data uji agar distribusi kelas VP-0 dan VP-1 tetap seimbang. Hasil akhir preprocessing menghasilkan dataset yang bersih, terstruktur, dan siap digunakan untuk pelatihan model.
+Tahap preprocessing dimulai dengan memuat dataset wajah anak dari direktori yang telah diatur. Seluruh citra kemudian diproses menggunakan **MTCNN (Multi-Task Cascaded Convolutional Network)** untuk mendeteksi dan memotong area wajah sehingga model hanya mempelajari fitur visual yang relevan dan tidak terdistraksi oleh latar belakang. Setelah wajah berhasil diekstraksi, citra di-*resize* menjadi **224×224 piksel** dan dinormalisasi menggunakan **mean–std normalization** mengikuti standar input model pre-trained seperti EfficientNet dan Vision Transformer.
 
-🤖 **Pemodelan**
-**A. EfficientNet-B0**
-Model pertama yang digunakan adalah **EfficientNet-B0**, sebuah CNN modern yang mengombinasikan depth, width, dan resolution scaling untuk efisiensi maksimal.
-Tiga eksperimen dilakukan:
-
-- **1. Baseline**
-   - Mengganti classification head menjadi Linear (1280 → 2)
-   - Melatih selama 10 epoch
-   - Optimizer Adam, LR = 1e-4
-
-- **2. Fine-Tuning Standar**
-   - Membuka 40 layer teratas untuk dilatih ulang
-   - Hasilnya meningkat signifikan
-
-- **3. Fine-Tuning + LoRA**
-   - Menambahkan modul LoRA pada pointwise convolution
-   - Melatih parameter kecil ber-rank rendah
-   - Paling efisien dan paling akurat dalam pengujian
-
-**B. Vision Transformer (ViT)**
-Sebagai pembanding, digunakan arsitektur ViT-Base Patch16/224:
-
-- Pre-trained ImageNet
-- Head diganti menjadi Linear (768 → 2)
-- Pelatihan dilakukan tanpa LoRA
-
-ViT mendapatkan performa tinggi namun masih kalah dari EfficientNet+LoRA.
+Untuk meningkatkan keragaman data dan mencegah overfitting, beberapa teknik **data augmentation** diterapkan, yaitu: rotasi acak, horizontal flip, random cropping, serta penyesuaian brightness–contrast. Dataset dibagi menggunakan **stratified split**, yaitu 80% data latih dan 20% data uji, untuk memastikan distribusi kelas **VP-0** dan **VP-1** tetap seimbang.  
+Tahap preprocessing ini memastikan bahwa dataset yang digunakan bersih, konsisten, dan siap dipakai untuk seluruh eksperimen model.
 
 ---
 
-📊 **Hasil dan Evaluasi**
+<h2 id="pemodelan" align="center">🤖 Pemodelan 🤖</h2>
+
+Penelitian ini menggunakan dua pendekatan utama: **(1) Handcrafted Features + Classic ML**, **(2) Deep Learning Modern (CNN, EfficientNet, dan ViT)**.  
+Seluruh model dibandingkan untuk menentukan pendekatan paling ideal dalam mendeteksi Visual Proxy pada wajah anak.
+
+---
+
+### 🟦 **A. EfficientNet-B0 (Model Utama)**
+
+EfficientNet-B0 dipilih karena merupakan CNN modern dengan efisiensi tinggi. Teknik **compound scaling** digunakan untuk menyeimbangkan *depth*, *width*, dan *resolution*, sehingga menghasilkan representasi fitur yang kuat pada citra wajah.
+
+Tiga eksperimen dilakukan:
+
+#### **1. Baseline EfficientNet**
+- Classification head diubah menjadi Linear (1280 → 2)
+- Training selama 10 epoch
+- Optimizer Adam, LR = 1e-4  
+
+#### **2. Fine-Tuning Standar**
+- 40 layer teratas EfficientNet dibuka untuk dilatih ulang
+- Meningkatkan kemampuan model dalam mengenali pola visual halus  
+
+#### **3. Fine-Tuning + LoRA (Low-Rank Adaptation)**  
+Pendekatan paling efisien sekaligus paling akurat:
+- LoRA ditambahkan pada pointwise convolution
+- Hanya parameter ber-rank rendah yang diperbarui
+- Komputasi lebih ringan dibanding full fine-tuning  
+
+---
+
+### 🟪 **B. Vision Transformer (ViT-Base Patch16/224)**
+
+Sebagai pembanding, digunakan Vision Transformer model dasar:
+
+- Pre-trained ImageNet
+- Classification head diganti menjadi Linear (768 → 2)
+- Dilatih sebagai baseline (tanpa LoRA)
+
+---
+
+### 🟩 **C. Model Handcrafted Features + Machine Learning**
+
+Selain deep learning, penelitian juga mengevaluasi kombinasi fitur manual:
+
+- **Landmark**
+- **GLCM**
+- **CCM**
+- **SIFT**
+- **LBP**
+- **HOG**
+- **Gabor**
+- **Color Moments**
+- **Edge**
+
+Setiap fitur atau kombinasi fitur diuji menggunakan:
+
+- **SVM**
+- **Random Forest**
+- **K-NN**
+
+---
+
+<h1 id="hasil--evaluasi" align="center">📊 Hasil & Evaluasi 📊</h1>
 
 **Evaluasi Model**
+
 Model dievaluasi menggunakan beberapa metrik, termasuk **classification report** dan **confusion matrix**.
 
 **Classification Report**
+
 Berikut adalah penjelasan tentang metrik yang digunakan dalam classification report:
 
 - **Precision**: Mengukur proporsi prediksi positif yang benar.
@@ -120,24 +199,80 @@ Berikut adalah penjelasan tentang metrik yang digunakan dalam classification rep
 - **Accuracy**: Mengukur keseluruhan performa model.
 
 **Tabel Perbandingan Classification Report**
-Berikut adalah perbandingan metrik evaluasi untuk setiap model:
-| Model                         | Algoritma   | Akurasi | Precision | Recall | F1-Score |
-|------------------------------|-------------|---------|-----------|--------|----------|
-| Baseline EfficientNet        | CNN         | 0.88    | 0.84      | 0.94   | 0.89     |
-| EfficientNet + Fine-Tuning   | CNN         | 0.97    | 0.99      | 0.95   | 0.97     |
-| EfficientNet + LoRA (Best)   | CNN         | 0.98    | 0.99      | 0.97   | 0.98     |
-| Vision Transformer Baseline  | Transformer | 0.95    | 0.95      | 0.95   | 0.95     |
 
-## Confusion Matrix 🔴🟢
+Berikut adalah perbandingan metrik evaluasi untuk setiap model:
+
+| Model Fitur                        | Algoritma       | Akurasi | Precision | Recall | F1-Score |
+|-----------------------------------|------------------|---------|-----------|--------|----------|
+| Baseline                          | SVM              | 0.91    | 0.93      | 0.90   | 0.91     |
+| Baseline                          | Random Forest    | 0.90    | 0.92      | 0.89   | 0.90     |
+| Baseline                          | K-NN             | 0.88    | 0.97      | 0.80   | 0.87     |
+| Landmark                          | SVM              | 0.86    | 0.90      | 0.83   | 0.86     |
+| Landmark                          | Random Forest    | 0.85    | 0.87      | 0.85   | 0.86     |
+| Landmark                          | K-NN             | 0.85    | 0.88      | 0.83   | 0.85     |
+| Landmark + GLCM                   | SVM              | 0.86    | 0.91      | 0.82   | 0.86     |
+| Landmark + GLCM                   | Random Forest    | 0.87    | 0.91      | 0.84   | 0.87     |
+| Landmark + GLCM                   | K-NN             | 0.87    | 0.91      | 0.84   | 0.87     |
+| Landmark + GLCM + CCM             | SVM              | 0.87    | 0.90      | 0.85   | 0.87     |
+| Landmark + GLCM + CCM             | Random Forest    | 0.86    | 0.89      | 0.84   | 0.86     |
+| Landmark + GLCM + CCM             | K-NN             | 0.84    | 0.87      | 0.82   | 0.84     |
+| Landmark + GLCM + CCM + SIFT      | SVM              | 0.85    | 0.89      | 0.82   | 0.85     |
+| Landmark + GLCM + CCM + SIFT      | Random Forest    | 0.87    | 0.92      | 0.82   | 0.87     |
+| Landmark + GLCM + CCM + SIFT      | K-NN             | 0.81    | 0.82      | 0.82   | 0.82     |
+| LBP                               | SVM              | 0.80    | 0.82      | 0.79   | 0.80     |
+| LBP                               | Random Forest    | 0.76    | 0.76      | 0.79   | 0.77     |
+| LBP                               | K-NN             | 0.76    | 0.75      | 0.79   | 0.77     |
+| LBP + HOG                         | SVM              | 0.83    | 0.85      | 0.82   | 0.84     |
+| LBP + HOG                         | Random Forest    | 0.80    | 0.79      | 0.85   | 0.82     |
+| LBP + HOG                         | K-NN             | 0.73    | 0.86      | 0.58   | 0.69     |
+| LBP + HOG + GABOR                 | SVM              | 0.83    | 0.85      | 0.82   | 0.84     |
+| LBP + HOG + GABOR                 | Random Forest    | 0.82    | 0.81      | 0.87   | 0.84     |
+| LBP + HOG + GABOR                 | K-NN             | 0.73    | 0.86      | 0.58   | 0.69     |
+| LBP + HOG + GABOR + COLOR         | SVM              | 0.85    | 0.86      | 0.84   | 0.85     |
+| LBP + HOG + GABOR + COLOR         | Random Forest    | 0.86    | 0.85      | 0.89   | 0.87     |
+| LBP + HOG + GABOR + COLOR         | K-NN             | 0.73    | 0.86      | 0.58   | 0.69     |
+| LBP + HOG + GABOR + COLOR + EDGE  | SVM              | 0.85    | 0.86      | 0.84   | 0.85     |
+| LBP + HOG + GABOR + COLOR + EDGE  | Random Forest    | 0.85    | 0.85      | 0.87   | 0.86     |
+| LBP + HOG + GABOR + COLOR + EDGE  | K-NN             | 0.73    | 0.86      | 0.58   | 0.69     |
+| Baseline CNN                      | CNN              | 0.86    | 0.83      | 0.93   | 0.88     |
+| CNN + FT Standar                  | CNN              | 0.90    | 0.91      | 0.90   | 0.91     |
+| CNN + FT LoRA (Manual)            | CNN              | 0.89    | 0.91      | 0.89   | 0.90     |
+| CNN + FT LoRA (Library)           | CNN              | 0.89    | 0.91      | 0.87   | 0.89     |
+| Baseline EfficientNet             | EfficientNet     | 0.88    | 0.84      | 0.94   | 0.89     |
+| EfficientNet + FT Standar         | EfficientNet     | 0.97    | 0.99      | 0.95   | 0.97     |
+| EfficientNet + FT LoRA (Best)     | EfficientNet     | 0.98    | 0.99      | 0.97   | 0.98     |
+| Vision Transformer Baseline       | ViT              | 0.95    | 0.95      | 0.95   | 0.95     |
+
+Berikut adalah perbandingan metrik evaluasi terbaik:
+| Model Terbaik                              | Algoritma      | Akurasi | Precision | Recall | F1-Score |
+|---------------------------------------------|----------------|---------|-----------|--------|----------|
+| Baseline                                    | SVM            | 0.91    | 0.93      | 0.90   | 0.91     |
+| Landmark + GLCM                             | SVM            | 0.86    | 0.91      | 0.82   | 0.86     |
+| Landmark + GLCM + CCM + SIFT                | Random Forest  | 0.87    | 0.92      | 0.82   | 0.87     |
+| LBP + HOG + GABOR + COLOR                   | Random Forest  | 0.86    | 0.85      | 0.89   | 0.87     |
+| CNN + Fine-Tuning Standar                   | CNN            | 0.90    | 0.91      | 0.90   | 0.91     |
+| EfficientNet + Fine-Tuning + LoRA (BEST)    | EfficientNet   | 0.98    | 0.99      | 0.97   | 0.98     |
+| Vision Transformer Baseline                 | ViT            | 0.95    | 0.95      | 0.95   | 0.95     |
+
+**Confusion Matrix** 🔴🟢
 
 Di bawah ini adalah confusion matrix untuk setiap model.
 
 <p align="center">
-  <!-- EfficientNet Baseline -->
-  <img src="assets/images/Confusion_Matrix_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <!-- SVM Baseline -->
+  <img src="assets/images/Confusion_Matrix_SVM_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+
+  <!-- SVM Landmark + GLCM -->
+  <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" alt="Confusion Matrix Baseline" width="30%" />
+
+  <!-- Random Forest Landmark + GLCM + CCM + SIFT -->
+  <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" alt="Confusion Matrix Baseline" width="30%" />
   
-  <!-- EfficientNet + Fine-Tuning -->
-  <img src="assets/images/Confusion_Matrix_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
+  <!-- Random Forest LBP + HOG + GABOR + COLOR -->
+  <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  
+  <!-- CNN + Fine-Tuning Standar -->
+  <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
   
   <!-- EfficientNet + LoRA -->
   <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" alt="Confusion Matrix FT LoRA" width="30%" />
@@ -146,14 +281,18 @@ Di bawah ini adalah confusion matrix untuk setiap model.
   <img src="assets/images/Confusion_Matrix_ViT.PNG" alt="Confusion Matrix ViT" width="30%" />
 </p>
 
-Learning Curves 📈
+**Learning Curves** 📈
+
 Berikut adalah learning curves untuk model EfficientNet dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
 
 <p align="center">
+  <!-- CNN -->
+  <img src="assets/images/grafik_cnn.PNG" alt="Grafik EfficientNet" width="60%" />
+  
   <!-- EfficientNet -->
-  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="30%" />
+  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="60%" />
   
   <!-- ViT -->
-  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="30%" />
+  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="60%" />
   
 </p>
