@@ -254,45 +254,77 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
 | EfficientNet + Fine-Tuning + LoRA (BEST)    | EfficientNet   | 0.98    | 0.99      | 0.97   | 0.98     |
 | Vision Transformer Baseline                 | ViT            | 0.95    | 0.95      | 0.95   | 0.95     |
 
-**Confusion Matrix** 🔴🟢
+<h2><b>Confusion Matrix 🔴🟢</b></h2>
 
-Di bawah ini adalah confusion matrix untuk setiap model.
+<p>Di bawah ini adalah confusion matrix untuk setiap model.</p>
 
-<p align="center">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
   <!-- SVM Baseline -->
-  <img src="assets/images/Confusion_Matrix_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>SVM Baseline</h4>
+    <img src="assets/images/Confusion_Matrix_Baseline.PNG" width="100%">
+  </div>
 
   <!-- SVM Landmark + GLCM -->
-  <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>SVM Landmark + GLCM</h4>
+    <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" width="100%">
+  </div>
 
-  <!-- Random Forest Landmark + GLCM + CCM + SIFT -->
-  <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" alt="Confusion Matrix Baseline" width="30%" />
-  
-  <!-- Random Forest LBP + HOG + GABOR + COLOR -->
-  <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" alt="Confusion Matrix Baseline" width="30%" />
-  
-  <!-- CNN + Fine-Tuning Standar -->
-  <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
-  
+  <!-- RF Landmark + GLCM + CCM + SIFT -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>RF — Landmark + GLCM + CCM + SIFT</h4>
+    <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" width="100%">
+  </div>
+
+  <!-- RF LBP + HOG + GABOR + COLOR -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>RF — LBP + HOG + Gabor + Color</h4>
+    <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" width="100%">
+  </div>
+
+  <!-- CNN Fine-Tuning Standar -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>CNN — Fine-Tuning Standar</h4>
+    <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" width="100%">
+  </div>
+
   <!-- EfficientNet + LoRA -->
-  <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" alt="Confusion Matrix FT LoRA" width="30%" />
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>EfficientNet + LoRA</h4>
+    <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" width="100%">
+  </div>
 
   <!-- Vision Transformer Baseline -->
-  <img src="assets/images/Confusion_Matrix_ViT.PNG" alt="Confusion Matrix ViT" width="30%" />
-</p>
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+    <h4>Vision Transformer Baseline</h4>
+    <img src="assets/images/Confusion_Matrix_ViT.PNG" width="100%">
+  </div>
 
-**Learning Curves** 📈
+</div>
 
-Berikut adalah learning curves untuk model EfficientNet dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
+<h2><b>Learning Curves 📈</b></h2>
+<p>Berikut adalah learning curves untuk model CNN, EfficientNet, dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:</p>
 
-<p align="center">
+<div style="display: flex; flex-direction: column; gap: 25px; align-items: center;">
+
   <!-- CNN -->
-  <img src="assets/images/grafik_cnn.PNG" alt="Grafik EfficientNet" width="60%" />
-  
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; width: 80%; text-align: center;">
+    <h3>CNN Learning Curve</h3>
+    <img src="assets/images/grafik_cnn.PNG" width="90%">
+  </div>
+
   <!-- EfficientNet -->
-  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="60%" />
-  
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; width: 80%; text-align: center;">
+    <h3>EfficientNet Learning Curve</h3>
+    <img src="assets/images/grafik_efficient.PNG" width="90%">
+  </div>
+
   <!-- ViT -->
-  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="60%" />
-  
-</p>
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 15px; width: 80%; text-align: center;">
+    <h3>ViT Learning Curve</h3>
+    <img src="assets/images/grafik_vit.PNG" width="90%">
+  </div>
+
+</div>
