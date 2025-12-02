@@ -255,54 +255,54 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
 | Vision Transformer Baseline                 | ViT            | 0.95    | 0.95      | 0.95   | 0.95     |
 
 <h2><b>Confusion Matrix 🔴🟢</b></h2>
-
 <p>Di bawah ini adalah confusion matrix untuk setiap model.</p>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-  <!-- SVM Baseline -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+  <!-- BOX 1 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
     <h4>SVM Baseline</h4>
-    <img src="assets/images/Confusion_Matrix_Baseline.PNG" width="100%">
+    <img src="assets/images/Confusion_Matrix_Baseline.PNG" width="90%">
   </div>
 
-  <!-- SVM Landmark + GLCM -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+  <!-- BOX 2 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
     <h4>SVM Landmark + GLCM</h4>
-    <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" width="100%">
+    <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" width="90%">
   </div>
 
-  <!-- RF Landmark + GLCM + CCM + SIFT -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+  <!-- BOX 3 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
     <h4>RF — Landmark + GLCM + CCM + SIFT</h4>
-    <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" width="100%">
+    <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" width="90%">
   </div>
 
-  <!-- RF LBP + HOG + GABOR + COLOR -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+  <!-- BOX 4 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
     <h4>RF — LBP + HOG + Gabor + Color</h4>
-    <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" width="100%">
+    <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" width="90%">
   </div>
 
-  <!-- CNN Fine-Tuning Standar -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
-    <h4>CNN — Fine-Tuning Standar</h4>
-    <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" width="100%">
+  <!-- BOX 5 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
+    <h4>CNN Fine-Tuning Standar</h4>
+    <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" width="90%">
   </div>
 
-  <!-- EfficientNet + LoRA -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
+  <!-- BOX 6 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
     <h4>EfficientNet + LoRA</h4>
-    <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" width="100%">
+    <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" width="90%">
   </div>
 
-  <!-- Vision Transformer Baseline -->
-  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 280px; text-align: center;">
-    <h4>Vision Transformer Baseline</h4>
-    <img src="assets/images/Confusion_Matrix_ViT.PNG" width="100%">
+  <!-- BOX 7 -->
+  <div style="border: 2px solid #ccc; border-radius: 10px; padding: 10px; width: 30%; min-width: 260px; text-align: center;">
+    <h4>Vision Transformer</h4>
+    <img src="assets/images/Confusion_Matrix_ViT.PNG" width="90%">
   </div>
 
 </div>
+
 
 <h2><b>Learning Curves 📈</b></h2>
 <p>Berikut adalah learning curves untuk model CNN, EfficientNet, dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:</p>
