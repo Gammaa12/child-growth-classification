@@ -254,45 +254,68 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
 | EfficientNet + Fine-Tuning + LoRA (BEST)    | EfficientNet   | 0.98    | 0.99      | 0.97   | 0.98     |
 | Vision Transformer Baseline                 | ViT            | 0.95    | 0.95      | 0.95   | 0.95     |
 
-**Confusion Matrix** 🔴🟢
+<h2><b>Confusion Matrix 🔴🟢</b></h2>
+<p>Di bawah ini adalah confusion matrix untuk model terbaik.</p>
 
-Di bawah ini adalah confusion matrix untuk setiap model.
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>SVM Baseline</b><br>
+      <img src="assets/images/Confusion_Matrix_Baseline.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>SVM Landmark + GLCM</b><br>
+      <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>RF — LMRK + GLCM + CCM + SIFT</b><br>
+      <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" width="180px">
+    </td>
+  </tr>
 
-<p align="center">
-  <!-- SVM Baseline -->
-  <img src="assets/images/Confusion_Matrix_SVM_Baseline.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <tr>
+    <td align="center">
+      <b>RF — LBP + HOG + Gabor + Color</b><br>
+      <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>CNN FT Standar</b><br>
+      <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" width="180px">
+    </td>
+    <td align="center">
+      <b>EfficientNet + LoRA</b><br>
+      <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" width="180px">
+    </td>
+  </tr>
 
-  <!-- SVM Landmark + GLCM -->
-  <img src="assets/images/Confusion_Matrix_SVM_LG.PNG" alt="Confusion Matrix Baseline" width="30%" />
+  <tr>
+    <td align="center">
+      <b>Vision Transformer</b><br>
+      <img src="assets/images/Confusion_Matrix_ViT.PNG" width="180px">
+    </td>
+  </tr>
+</table>
 
-  <!-- Random Forest Landmark + GLCM + CCM + SIFT -->
-  <img src="assets/images/Confusion_Matrix_RF_fusion1.PNG" alt="Confusion Matrix Baseline" width="30%" />
-  
-  <!-- Random Forest LBP + HOG + GABOR + COLOR -->
-  <img src="assets/images/Confusion_Matrix_RF_fusion2.PNG" alt="Confusion Matrix Baseline" width="30%" />
-  
-  <!-- CNN + Fine-Tuning Standar -->
-  <img src="assets/images/Confusion_Matrix_CNN_FT_Standar.PNG" alt="Confusion Matrix FT Standar" width="30%" />
-  
-  <!-- EfficientNet + LoRA -->
-  <img src="assets/images/Confusion_Matrix_FT_LoRA.PNG" alt="Confusion Matrix FT LoRA" width="30%" />
+<h2><b>Learning Curves 📈</b></h2>
+<p>Berikut adalah learning curves untuk model CNN, EfficientNet dan ViT.</p>
 
-  <!-- Vision Transformer Baseline -->
-  <img src="assets/images/Confusion_Matrix_ViT.PNG" alt="Confusion Matrix ViT" width="30%" />
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>CNN Learning Curve</b><br>
+      <img src="assets/images/grafik_cnn.PNG" width="350px">
+    </td>
+    <td align="center">
+      <b>EfficientNet Learning Curve</b><br>
+      <img src="assets/images/grafik_efficient.PNG" width="350px">
+    </td>
+  </tr>
 
-**Learning Curves** 📈
+  <tr>
+    <td align="center" colspan="2">
+      <b>Vision Transformer Learning Curve</b><br>
+      <img src="assets/images/grafik_vit.PNG" width="350px">
+    </td>
+  </tr>
+</table>
 
-Berikut adalah learning curves untuk model EfficientNet dan ViT yang menunjukkan bagaimana model belajar seiring berjalannya waktu:
-
-<p align="center">
-  <!-- CNN -->
-  <img src="assets/images/grafik_cnn.PNG" alt="Grafik EfficientNet" width="60%" />
-  
-  <!-- EfficientNet -->
-  <img src="assets/images/grafik_efficient.PNG" alt="Grafik EfficientNet" width="60%" />
-  
-  <!-- ViT -->
-  <img src="assets/images/grafik_vit.PNG" alt="Grafik ViT" width="60%" />
-  
-</p>
