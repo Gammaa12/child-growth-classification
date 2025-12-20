@@ -322,6 +322,17 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
 
 <h1 id="dashboard" align="center">🔬 GrowthVision AI: Child Growth Classification 🔬</h1>
 
+<p align="center">
+  <a href="https://child-growth-classification.streamlit.app/" target="_blank">
+    <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Streamlit App">
+  </a>
+</p>
+
+<p align="center">
+  <strong>Live Demo:</strong> 
+  <a href="https://child-growth-classification.streamlit.app/">child-growth-classification.streamlit.app</a>
+</p>
+
 **GrowthVision AI** adalah sistem berbasis web yang dirancang untuk melakukan klasifikasi morfologi wajah pada anak guna mendukung analisis pertumbuhan pediatrik. Proyek ini memanfaatkan teknologi *Deep Learning* dengan arsitektur **CNN** dan **EfficientNet-B0** yang dioptimalkan menggunakan teknik **LoRA (Low-Rank Adaptation)**.
 
 ---
