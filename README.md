@@ -20,6 +20,7 @@
   - [Preprocessing Data](#preprocessing-data)
   - [Pemodelan](#pemodelan)
 - [Hasil & Evaluasi](#hasil--evaluasi)
+- [Dashboard](#dashboard)
 
 ---
 
@@ -319,3 +320,65 @@ Berikut adalah perbandingan metrik evaluasi terbaik:
   </tr>
 </table>
 
+<h1 id="dashboard" align="center">🔬 GrowthVision AI: Child Growth Classification 🔬</h1>
+
+<p align="center">
+  <a href="https://child-growth-classification.streamlit.app/" target="_blank">
+    <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Streamlit App">
+  </a>
+</p>
+
+<p align="center">
+  <strong>Live Demo:</strong> 
+  <a href="https://child-growth-classification.streamlit.app/">child-growth-classification.streamlit.app</a>
+</p>
+
+**GrowthVision AI** adalah sistem berbasis web yang dirancang untuk melakukan klasifikasi morfologi wajah pada anak guna mendukung analisis pertumbuhan pediatrik. Proyek ini memanfaatkan teknologi *Deep Learning* dengan arsitektur **CNN** dan **EfficientNet-B0** yang dioptimalkan menggunakan teknik **LoRA (Low-Rank Adaptation)**.
+
+---
+
+## 🚀 Fitur Utama
+- **Batch Processing**: Mampu melakukan analisis hingga 20 subjek secara acak sekaligus.
+- **Inference Models**: Pilihan arsitektur model antara EfficientNet + LoRA, CNN Fine-Tuning, atau SVM Klasik.
+- **Visualisasi Real-time**: Hasil prediksi dilengkapi dengan *Confidence Score* menggunakan Gauge Chart interaktif.
+- **Export Data**: Pengguna dapat mengunduh hasil analisis dalam format CSV untuk keperluan statistik lebih lanjut.
+
+---
+
+## 🛠️ Cara Menggunakan Dashboard
+
+### 1. Memilih Sumber Data
+Terdapat dua metode input pada panel kiri (Sidebar):
+* **Sampel Acak GitHub**: Sistem akan mengambil 20 gambar secara acak dari dataset penelitian yang tersimpan di folder `samples`.
+* **Upload Manual**: Pengguna dapat mengunggah foto subjek sendiri (format .jpg, .png, atau .jpeg).
+
+### 2. Menjalankan Analisis
+* Pilih arsitektur model yang diinginkan pada menu drop-down.
+* Klik tombol **🚀 RUN INFERENCE**.
+* Tunggu hingga progress bar mencapai 100%.
+
+### 3. Membaca Hasil
+* **Classification Summary**: Ringkasan total jumlah subjek yang terdeteksi sebagai **VP-0 (Proportional)** dan **VP-1 (Linear)**.
+* **Individual Analysis**: Detail hasil per gambar lengkap dengan persentase keyakinan model.
+* **Download Report**: Klik tombol unduh di bagian bawah untuk menyimpan tabel hasil.
+
+---
+
+## 📂 Struktur Repositori
+- `app.py`: File utama aplikasi Streamlit.
+- `samples/`: Folder berisi dataset gambar sampel untuk demo.
+- `requirements.txt`: Daftar library Python yang dibutuhkan (PyTorch, Streamlit, Plotly, dll).
+- `README.md`: Dokumentasi proyek.
+
+---
+
+## 🔬 Metodologi & Riset
+Sistem ini dikembangkan sebagai bagian dari tugas besar mata kuliah **Machine Learning**. Fokus riset ini adalah mengimplementasikan teknik *transfer learning* dan efisiensi model melalui **LoRA** untuk mengenali fitur morfologi wajah yang berkaitan dengan pola pertumbuhan (Visual Proxy) pada anak-anak.
+
+---
+
+## ⚖️ Lisensi
+Proyek ini didistribusikan di bawah **MIT License**. Data yang digunakan dalam demo ini bertujuan untuk kepentingan edukasi dan riset teknologi *screening* awal non-medis.
+
+---
+**© 2024 | Machine Learning**
