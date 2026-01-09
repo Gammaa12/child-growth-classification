@@ -10,6 +10,14 @@
 
 ---
 
+<h1 align="center">ACADEMIC POSTER</h1>
+---
+<p align="center">
+  <img src="Academic Poster.PNG" width="70%">
+</p>
+
+---
+
 <h1 align="center">📑 Table of Contents 📑</h1>
 
 - [Deskripsi Proyek](#deskripsi-proyek)
