@@ -13,7 +13,7 @@
 <h1 align="center">ACADEMIC POSTER</h1>
 ---
 <p align="center">
-  <img src="Academic Poster.PNG" width="70%">
+  <img src="Academic Poster.png" width="70%">
 </p>
 
 ---
